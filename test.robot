@@ -4,7 +4,7 @@ Library            String
 Library            Collections
 Resource           utils/browser_management.resource
 Resource           pages/login_page.resource
-Test Setup         browser_management.Set up browser    # headless=False
+Test Setup         browser_management.Set up browser    headless=False
 
 *** Test Cases ***
 Test 1
@@ -13,9 +13,7 @@ Test 1
     ${password}           login_page.Get available password
     VAR    ${login}       ${login}       scope=SUITE
     VAR    ${password}    ${password}    scope=SUITE
-    Fill Text             selector=id=user-name        txt=${login}
-    Fill Secret           selector=id=password         secret=$password
-    Click                 selector=id=login-button
+    login_page.Login      username=${login}    password=${password}
     Click                 id=add-to-cart-sauce-labs-onesie
     Click                 id=add-to-cart-sauce-labs-bike-light
     Click                 id=add-to-cart-sauce-labs-backpack

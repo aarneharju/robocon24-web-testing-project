@@ -17,3 +17,9 @@ Get available password
     ${password}               String.Fetch From Right      ${password field text}    \n
 
     RETURN    ${password}
+
+Login
+    [Arguments]    ${username}    ${password}
+    Fill Text      id=user-name    txt=${username}
+    Fill Secret    id=password     secret=$password
+    Click          id=login-button    
